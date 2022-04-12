@@ -14,9 +14,9 @@ failedfiles = manager.list()
 currentdir = os.path.realpath(os.getcwd()).rstrip(os.sep)
 print("Arguments: " + str(sys.argv))
 # Get absolute source dir after removing leading and trailing seperators from input. 
-sourcedir = currentdir + sys.argv[1].lstrip(os.sep).rstrip(os.sep)
+sourcedir = os.path.join(currentdir, sys.argv[1])
 print("Source directory: " + sourcedir)
-builddir = sourcedir + os.sep + sys.argv[2].rstrip(os.sep)
+builddir = os.path.join(sourcedir, os.sep, sys.argv[2])
 print("Build directory: " + builddir)
 # If exclude dirs is not empty, split it into a tuple
 excludedirs = ()
